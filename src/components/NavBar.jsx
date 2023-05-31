@@ -13,6 +13,7 @@ const NavBar = () => {
             <Nav.Link href="transactions">Transactions</Nav.Link>
             <Nav.Link href="nft">NFT</Nav.Link>
             <Nav.Link href="smart-contracts">Smart Contracts</Nav.Link>
+            <Nav.Link href="ens">ENS</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

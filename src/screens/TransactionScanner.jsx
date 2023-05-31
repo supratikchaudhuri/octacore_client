@@ -13,6 +13,9 @@ function TransactionScanner() {
   const [blockHash, setBlockHash] = useState('')
   const [blockIdx, setBlockIdx] = useState(null);
   const [txnData, setTxnData] = useState(null);
+
+  String.prototype.isNumber = function(){return /^\d+$/.test(this);}
+
   
 
   useEffect (() => {
@@ -30,11 +33,11 @@ function TransactionScanner() {
     e.preventDefault();
     let txnDataObj;
 
-    if(parseInt(blockHash) === 'undefined') { //its a block hash
-      txnDataObj = await getTxnDataByBlockHashAndIdx(blockHash, blockIdx);
+    if(blockHash.isNumber()) { //its a block number
+      txnDataObj = await getTxnDataByBlockNoAndIdx(parseInt(blockHash), blockIdx);
     } 
-    else {  // its a block number
-      txnDataObj = await getTxnDataByBlockNoAndIdx(blockHash, blockIdx);
+    else {  // its a block hash
+      txnDataObj = await getTxnDataByBlockHashAndIdx(blockHash, blockIdx);
     }
     setTxnData(txnDataObj);
   }

@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import AddressScanner from "./screens/AddressScanner";
 import TransactionScanner from "./screens/TransactionScanner";
 import NavBar from "./components/NavBar";
+import ENS from "./screens/ENS";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
 
         <Routes>
           <Route exact path="/transactions" element={<TransactionScanner/>}/>
+        </Routes>
+
+        <Routes>
+          <Route exact path="/ens" element={<ENS/>}/>
         </Routes>
 
       </BrowserRouter>
