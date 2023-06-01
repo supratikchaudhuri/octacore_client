@@ -4,6 +4,7 @@ import AddressScanner from "./screens/AddressScanner";
 import TransactionScanner from "./screens/TransactionScanner";
 import NavBar from "./components/NavBar";
 import ENS from "./screens/ENS";
+import BlockScanner from "./screens/BlockScanner";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
 
         <Routes>
           <Route exact path="/transactions" element={<TransactionScanner/>}/>
+        </Routes>
+
+        <Routes>
+          <Route exact path="/block" element={<BlockScanner/>}/>
         </Routes>
 
         <Routes>

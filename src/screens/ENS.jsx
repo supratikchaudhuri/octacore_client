@@ -5,7 +5,7 @@ import Alert from 'react-bootstrap/Alert';
 
 import {resolveEns, reverseResolveEns} from "../API/ens";
 
-function ENS(props) {
+function ENS() {
 
   const [resolvedDomain, setResolvedDomain] = useState(null);
   const [resolvedAddress, setResolvedAddress] = useState(null);
