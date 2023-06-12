@@ -43,11 +43,12 @@ export const getAllAssets = async (address) => {
   }
 }
 
-export const getNFTAssets = async (address) => {
-  try {
-    const res = await axios.get(`/accounts/getNftAssets/?address=${address}`)
-    return res.data;
-  } catch (err) {
-    return err
-  }
-}
+
+// export const getNFTAssets = async (address) => {
+//   try {
+//     const res = await axios.get(`/accounts/getNftAssets/?address=${address}`)
+//     return res.data;
+//   } catch (err) {
+//     return err
+//   }
+// }

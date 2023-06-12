@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {getBalance, getPendingBalance, getAllAssets, getNFTAssets} from "../API/accounts";
+import {getBalance, getPendingBalance, getAllAssets} from "../API/accounts";
 
 
 function AddressScanner() {
@@ -31,7 +31,6 @@ function AddressScanner() {
     setErc20Assets(erc20AssetsList);
     setErc721Assets(erc721AssetsList);
     setErc1155Assets(erc1155AssetsList);
-  
 
   }
 
@@ -103,7 +102,7 @@ function AddressScanner() {
         
       )}
 
-      {/* {
+      {
         erc721Assets && (
         <>
           <h5>ERC721 Assets</h5>
@@ -141,7 +140,7 @@ function AddressScanner() {
           </div>
         </>
         
-      )} */}
+      )}
 
       
     </div>

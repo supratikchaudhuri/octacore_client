@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
-import TnxHashInput from '../components/TnxHashInput';
-import BlockDataInput from '../components/BlockDataInput';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 import { getTxnData, getTxnDataByBlockHashAndIdx, getTxnDataByBlockNoAndIdx } from '../API/transactions';
@@ -15,8 +15,6 @@ function TransactionScanner() {
   const [txnData, setTxnData] = useState(null);
 
   String.prototype.isNumber = function(){return /^\d+$/.test(this);}
-
-  
 
   useEffect (() => {
 
@@ -58,16 +56,35 @@ function TransactionScanner() {
       {
         reqType === 'Transaction Hash' 
         ?
-        <TnxHashInput getData={getDataFromTxn} txnHash={txnHash} setTxnHash={setTxnHash}/>
+        <>
+          <Form onSubmit={getDataFromTxn}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Transaction Hash</Form.Label>
+              <Form.Control type="text" placeholder="Enter transaction hash" value={txnHash} onChange={e => setTxnHash(e.target.value)}/>
+            </Form.Group>
+
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </>
         :
-        <BlockDataInput 
-          getData={getDataFromBlock} 
-          blockHash={blockHash}
-          setBlockHash={setBlockHash}
-          blockIdx={blockIdx} 
-          setBlockIdx={setBlockIdx}
-          
-        />
+        <>
+          <Form onSubmit={getDataFromBlock}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Block Hash/Number</Form.Label>
+              <Form.Control type="text" placeholder="Enter transaction hash" value={blockHash} onChange={e => setBlockHash(e.target.value)}/>
+              <Form.Label>Block Index (Optional)</Form.Label>
+              <Form.Control type="text" placeholder="Enter block Index" value={blockIdx} onChange={e => setBlockIdx(e.target.value)}/>
+            </Form.Group>
+
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </>
       }
 
 
